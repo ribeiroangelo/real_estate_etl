@@ -16,7 +16,7 @@ class ExcelExtractor(Extractor):
     def extract(self, file_path: str, config: Dict) -> Optional[DataFrame]:
         """Extract data from an Excel file into a Spark DataFrame."""
         try:
-            pdf = pd.read_excel(file_path, sheet_name="People")
+            pdf = pd.read_excel(file_path)
             spark = SparkSession.builder.appName("ExcelReader").getOrCreate()
             df = spark.createDataFrame(pdf)
             

@@ -82,6 +82,7 @@ def main(county: str, input_file: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='ETL pipeline for county property sales')
-    file = "/home/angelo/Downloads/Title.xlsx"
-    county = "osceola"
-    main(county, file)
+    parser.add_argument('--county', help='County to process')
+    parser.add_argument('--file', help='Input file path')
+    args = parser.parse_args()
+    main(args.county, args.file)
